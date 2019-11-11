@@ -1,4 +1,5 @@
 class CarsController < ApplicationController
+
   def new
   end
 
@@ -15,6 +16,7 @@ class CarsController < ApplicationController
   end
 
   def index
+    @cars = Car.all
   end
 
   def show
