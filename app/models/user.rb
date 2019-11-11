@@ -5,5 +5,5 @@ class User < ApplicationRecord
   has_many :bookings
   has_many :bookings, through: :cars
   has_many :reviews, through: :bookings
-  validates :role, inclusion: { in: ['owner', 'customer'] }
+  # validates :role, inclusion: { in: ['owner', 'customer'] }
 end
