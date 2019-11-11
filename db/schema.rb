@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_150820) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.bigint "user_id"
     t.bigint "car_id"
     t.integer "renting_time"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_150820) do
     t.integer "price_per_hour"
     t.integer "price_per_day"
     t.integer "milage"
+    t.string "plate_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_cars_on_user_id"
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 2019_11_11_150820) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "phone_numer"
+    t.string "phone_number"
     t.string "full_name"
     t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true

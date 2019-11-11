@@ -6,6 +6,7 @@ class CreateCars < ActiveRecord::Migration[5.2]
       t.integer :price_per_hour
       t.integer :price_per_day
       t.integer :milage
+      t.string :plate_number
 
       t.timestamps
     end
