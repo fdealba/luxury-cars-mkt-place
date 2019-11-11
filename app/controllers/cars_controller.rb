@@ -13,7 +13,11 @@ class CarsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
+    @car.destroy
+    respond_to do |format|
+      format.html { redirect_to cars_url, notice: 'Article was successfully destroyed.' }
+      format.json { head :no_content }
   end
 
   def edit
