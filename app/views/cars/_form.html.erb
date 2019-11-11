@@ -1,0 +1,18 @@
+<%= simple_form_for (@car) do |f| %>
+    <%= f.input :brand%>
+    <%= f.input :milage %>
+    <%= f.input :plate_number %>
+    <%= f.input :price_per_hour %>
+    <%= f.input :price_per_day %>
+<br>
+  <%= f.button :submit, class: "custom-button mb-2"%>
+  <br>
+  <br>
+  <p><%= link_to "Go back", root_path, class: "btn btn-primary" %></p>
+  <br>
+  </div>
+</div>
+<% end %>
+
+
+
