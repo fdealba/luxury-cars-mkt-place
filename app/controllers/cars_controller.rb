@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :set_car, only: [:edit, :update, :show]
+  before_action :set_car, only: [:edit, :update, :show, :destroy]
   def new
     @car = Car.new
   end
@@ -14,6 +14,8 @@ class CarsController < ApplicationController
   end
 
   def destroy
+    @car.destroy
+    redirect_to cars_path
   end
 
   def edit

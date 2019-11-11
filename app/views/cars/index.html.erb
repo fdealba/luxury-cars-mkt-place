@@ -11,8 +11,7 @@
    <tr>
       <td><%= car.brand %></td>
       <td><%= car.plate_number %></td>
-      <td><%= link_to 'Show', article %></td>
-      <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 
