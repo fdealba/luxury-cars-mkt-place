@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :set_car, only: [:edit, :update, :show, :destroy]
+
   def new
     @car = Car.new
   end
@@ -16,10 +17,12 @@ class CarsController < ApplicationController
   def destroy
     @car.destroy
     redirect_to cars_path
+    authorize @car
   end
 
   def edit
     @car
+    authorize @car
   end
 
   def update
@@ -42,5 +45,9 @@ class CarsController < ApplicationController
 
   def car_params
     params.require(:car).permit(:brand, :price_per_hour, :milage, :photo, :price_per_day, :user_id, :plate_number)
+  end
+
+  def skip_pundit?
+    devise_controller? || params[:controller] =~ /(^(rails_)?admin)|(^pages$)/
   end
 end
