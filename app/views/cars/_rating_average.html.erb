@@ -1,0 +1,6 @@
+<% counter = 0 %>
+<% car.reviews.each do |review| %>
+<% counter += review.rating.to_i %>
+<% end %>
+
+<%= counter/car.reviews.length %>
