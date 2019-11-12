@@ -2,7 +2,7 @@
 <% @cars.each do |car| %>
   <div class="card">
     <%= link_to car_path(car) do %>
-    <img class="card-img-top rounded pho" width="100%" style="background-image: url('<%= car.photo %>')">
+    <div class="card-img-top rounded pho" width="100%" style="background-image: url('<%= image_path car.photo %>')"></div>
     <% end %>
   <div class="card-body" >
   <h5 class="m-0"><%= car.car_model %></h5>
