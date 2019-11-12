@@ -1,14 +1,14 @@
 class ReviewsController < ApplicationController
-  before_action :set_car, only: [:new, :create]
+  before_action :set_booking, only: [:new, :create]
 
   def new
     @review = Review.new
   end
   def create
     @review = Review.new(review_params)
-    @review.car = @car
+    @review.booking = @booking
     if @review.save
-      redirect_to car_path(@car)
+      redirect_to booking_path(@booking)
     else
       render :new
     end
@@ -16,12 +16,12 @@ class ReviewsController < ApplicationController
 
   private
 
-  def set_car
-    @car = Car.find(params[:car_id])
+  def set_booking
+    @booking = Booking.find(params[:booking_id])
   end
 
   def review_params
-    params.require(:review).permit(:rating, :content, :car_id)
+    params.require(:review).permit(:rating, :content, :booking_id)
   end
 end
 
