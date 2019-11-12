@@ -69,7 +69,7 @@ ActiveRecord::Schema.define(version: 2019_11_12_141313) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "phone_numer"
+    t.string "phone_number"
     t.string "full_name"
     t.string "role"
     t.index ["email"], name: "index_users_on_email", unique: true
