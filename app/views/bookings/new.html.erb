@@ -1,2 +1,7 @@
-<h1>Bookings#new</h1>
+<h1>Booking</h1>
 <p>Find me in app/views/bookings/new.html.erb</p>
+<%= simple_form_for [@car, @booking] do |f| %>
+  <%= f.label :renting_time %>
+  <%= f.text_field :renting_time %>
+  <%= f.submit "book this car" %>
+<% end %>
