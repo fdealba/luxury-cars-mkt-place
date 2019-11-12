@@ -1,5 +1,4 @@
 <img src='<%= @car.photo %>' class="text-center" alt="">
-<% @car.car_model = "BMW 7 series" %>
 <h1><%= @car.car_model %></h1>
 <p><%= @car.year %> | <%= @car.milage %>kms | <%= @car.seats %> seats | <%= @car.combustion %> | <%= @car.transmission %></p>
 <% unless @car.reviews.length == 0 %>
