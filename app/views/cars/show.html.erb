@@ -1,8 +1,30 @@
-<h1><%= @car.brand %></h1>
-<p>Plate Number - <%=  @car.plate_number.upcase %> </p>
-<p>Price per hour - <%= @car.price_per_hour %> €</p>
-<p>Price per day - <%= @car.price_per_day %> €</p>
-<p>Milage - <%=  @car.milage %>kms €</p>
+<img src="https://www.bmw.es/content/dam/bmw/common/all-models/7-series/sedan/2019/navigation/bmw-7-series-sedan-modelfinder-stage2-890x501.png" alt="">
+<% @car.car_model = "BMW 7 series" %>
+<h1><%= @car.car_model %></h1>
+<p><%= @car.milage %></p>
+<% unless @car.reviews.length == 0 %>
+    <% counter = 0 %>
+    <% @car.reviews.each do |review| %>
+    <% counter += review.rating.to_i %>
+    <% end %>
+      <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %>(<%= @car.reviews.count %>)</p>
+    <% end %>
+<p><%= @car.seats %></p>
+<p><%= @car.description %></p>
+<p><%= @car.owner_conditions %></p>
+<p><%= @car.combustion %></p>
+<p><%= @car.transmission %></p>
+<p><%= @car.accessories %></p>
+<p><%= @car.year %></p>
+
+
+
+
+
+
+
 <p><%= link_to "Go back", cars_path , class: "btn btn-primary btn-lg"%></p>
 <p><%= link_to "Book this car", new_car_booking_path(@car) , class: "btn btn-primary btn-lg"%></p>
 <% if policy(@car).edit? %>
