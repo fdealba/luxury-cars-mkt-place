@@ -1,7 +1,7 @@
 <img src='<%= @car.photo %>' class="text-center" alt="">
 <% @car.car_model = "BMW 7 series" %>
 <h1><%= @car.car_model %></h1>
-<p><%= @car.milage %></p>
+<p><%= @car.year %> | <%= @car.milage %>kms | <%= @car.seats %> seats | <%= @car.combustion %> | <%= @car.transmission %></p>
 <% unless @car.reviews.length == 0 %>
     <% counter = 0 %>
     <% @car.reviews.each do |review| %>
@@ -11,14 +11,25 @@
         <i class="fas fa-star"></i>
       <% end %>(<%= @car.reviews.count %>)</p>
     <% end %>
-<p><%= @car.seats %></p>
-<p><%= @car.description %></p>
-<p><%= @car.owner_conditions %></p>
-<p><%= @car.combustion %></p>
-<p><%= @car.transmission %></p>
-<p><%= @car.accessories %></p>
-<p><%= @car.year %></p>
-
+<div class="box p-2">
+  <h4><%= @car.price_per_hour%>€</h4>
+  <span>PER HOUR</span>
+</div>
+<% if @car.description.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Description: </strong><%= @car.description %></p>
+<% end %>
+<% if @car.owner_conditions.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Owner Conditions: </strong><%= @car.owner_conditions %></p>
+<% end %>
+<% if @car.accessories.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Accessories: </strong><%= @car.accessories %></p>
+<% end %>
 
 
 <p><%= link_to "Go back", cars_path , class: "btn btn-primary btn-lg"%></p>
