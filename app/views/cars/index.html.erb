@@ -8,9 +8,9 @@
 <% car.reviews.each do |review| %>
 <% counter += review.rating.to_i %>
 <% end %>
-  <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
+  <p class="card-text m-0"><%# counter/car.reviews.length.times do  %>
     <i class="fas fa-star"></i>
-  <% end %>(<%= car.reviews.count %>)</p>
+  <!-- <%# end %>(<%#= car.reviews.count %>)</p> -->
   </div>
   <div class="box">
   <h4>€<%= car.price_per_hour%></h4>
