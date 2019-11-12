@@ -1,7 +1,11 @@
-<h1>Booking</h1>
-<p>Find me in app/views/bookings/new.html.erb</p>
+<h1>Book <%= @car.brand %> <%= @car.model_name %> <%= @car.year %></h1>
+<p>Price Per Day - <span id="day-price"><%= @car.price_per_day %></span>€</p>
 <%= simple_form_for [@car, @booking] do |f| %>
   <%= f.label :renting_time %>
   <%= f.text_field :renting_time %>
+  <span>days</span>
+  <h2>Total Price - <span id="final-price"> </span>€</h2>
+  <p>200 km incluidos, después 0,12€ / km</p>
   <%= f.submit "book this car" %>
 <% end %>
+
