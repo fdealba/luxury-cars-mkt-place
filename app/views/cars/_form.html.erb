@@ -1,9 +1,17 @@
 <%= simple_form_for (@car) do |f| %>
     <%= f.input :brand%>
+    <%= f.input :car_model%>
+    <%= f.input :year%>
     <%= f.input :milage %>
+    <%= f.input :seats %>
+    <%= f.input :combustion %>
+    <%= f.input :transmission %>
+    <%= f.input :accessories %>
     <%= f.input :plate_number %>
     <%= f.input :price_per_hour %>
     <%= f.input :price_per_day %>
+    <%= f.input :description %>
+    <%= f.input :photo %>
 
 <br>
   <%= f.button :submit, class: "custom-button mb-2"%>
