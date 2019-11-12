@@ -6,6 +6,12 @@
     <% end %>
   <div class="card-body" >
   <h5 class="m-0"><%= car.car_model %></h5>
+  <% if car.reviews.length == 0%>
+  <% 5.times do %>
+   <i class="fas fa-star" style="color: grey;"></i>
+   <% end %>
+   0
+   <% end %>
   <% unless car.reviews.length == 0 %>
     <% counter = 0 %>
     <% car.reviews.each do |review| %>
@@ -13,7 +19,7 @@
     <% end %>
       <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
         <i class="fas fa-star"></i>
-      <% end %>(<%= car.reviews.count %>)</p>
+      <% end %><%= car.reviews.count %></p>
     <% end %>
   </div>
   <div class="box p-2">
