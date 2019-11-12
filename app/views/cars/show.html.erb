@@ -6,5 +6,6 @@
 <p>Milage - <%=  @car.milage %>kms €</p>
 <p><%= link_to "Go back", cars_path %></p>
 <% if policy(@car).edit? %>
-  <p><%=  link_to "Edit listing", edit_car_path(@car) %> </p>
+  <p><%= link_to "Edit listing", edit_car_path(@car) %> </p>
+  <p><%= link_to raw('<i class="fas fa-trash" style="color: red !important;"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %></p>
 <% end %>
