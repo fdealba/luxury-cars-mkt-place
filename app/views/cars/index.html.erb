@@ -3,14 +3,16 @@
   <div class="card rounded">
   <img src="https://imgredirect.milanuncios.com/fg/2904/85/290485034_1.jpg?VersionId=Yty38Rlpjr1wlCSBZTQd6n5cQlmnZUdA" class="card-img-top rounded" width="100%" height="70%" alt="">
   <div class="card-body" >
-  <h5 class="m-0"><%= link_to "car", car_path(car) %></h5>
-<% counter = 0 %>
-<% car.reviews.each do |review| %>
-<% counter += review.rating.to_i %>
-<% end %>
-  <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
-    <i class="fas fa-star"></i>
-  <% end %>(<%= car.reviews.count %>)</p>
+  <h5 class="m-0"><%= link_to car.car_model, car_path(car) %></h5>
+  <% unless car.reviews.length == 0 %>
+    <% counter = 0 %>
+    <% car.reviews.each do |review| %>
+    <% counter += review.rating.to_i %>
+    <% end %>
+      <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %>(<%= car.reviews.count %>)</p>
+    <% end %>
   </div>
   <div class="box">
   <h4>€<%= car.price_per_hour%></h4>
