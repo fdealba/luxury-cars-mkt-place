@@ -1,18 +1,16 @@
-<h1>All Cars</h1>
-
+<div class="cards">
 <% @cars.each do |car| %>
-<h1><%= link_to car.brand, car_path(car) %></h1>
-<p>Plate number -<%= car.plate_number %></p>
-<p>Milage  -<%= car.milage %></p>
-<p>Price per hour -<%= car.price_per_hour %></p>
+  <div class="card rounded">
+  <img src="https://imgredirect.milanuncios.com/fg/2904/85/290485034_1.jpg?VersionId=Yty38Rlpjr1wlCSBZTQd6n5cQlmnZUdA" class="card-img-top rounded" width="100%" height="70%" alt="">
+  <div class="card-body" >
+  <h5 class="m-0"><%= link_to "car", car_path(car) %></h5>
+  <p class="card-text m-0">Reviews  </p>
+  </div>
+  <div class="box">
+  <h4>€<%= car.price_per_hour%></h4>
+  <span>per hour</span>
+  </div>
+  </div>
 <% end %>
+</div>
 <%= link_to "Add a car", new_car_path, class: "btn btn-primary btn-lg" %>
-
-<% @cars.each do |car| %>
-   <tr>
-      <td><%= car.brand %></td>
-      <td><%= car.plate_number %></td>
-      <td><%= link_to 'Destroy', car_path(car), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  <% end %>
-
