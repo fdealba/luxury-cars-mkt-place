@@ -17,7 +17,7 @@ justify-items: center;
   a {
     border: none;
     border-radius: 5px;
-    img {
+    div {
       height: 200px;
       width: 100%;
       transition: all 0.5s ease;
@@ -36,7 +36,7 @@ justify-items: center;
   background-color: white;
   border-radius: 20%;
   color: #390446;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
   position: absolute;
   bottom: 55px;
   right: 23px;
