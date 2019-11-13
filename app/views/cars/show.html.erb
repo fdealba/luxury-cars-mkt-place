@@ -1,38 +1,52 @@
 <div class="container">
-  <div class="top-info">
-    <div class="picture">
-      <img src='<%= @car.photo %>' class="text-center" alt="" id="car_picture">
-    </div>
-    <div class="infos">
-      <h1><%= @car.brand %> - <%= @car.car_model %></h1>
-      <p><%= @car.year %> | <%= @car.body_type %> | <%= @car.seats %> seats | <%= @car.milage %>kms</p>
-    </div>
-    <div class="user-container">
-      <p id="user"><strong>Rented by</strong> <%= @car.user.full_name %> </p>
-      <img src= <%= @car.user.photo %> alt="" class="avatar">
-    </div>
-    <div class="rating">
-      <% if @car.reviews.length == 0%>
-      <% 5.times do %>
-       <i class="fas fa-star" style="color: grey;"></i>
-       <% end %>
-       0
-       <% end %>
-      <% unless @car.reviews.length == 0 %>
-        <% counter = 0 %>
-        <% @car.reviews.each do |review| %>
-        <% counter += review.rating.to_i %>
-        <% end %>
-          <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
-            <i class="fas fa-star"></i>
-          <% end %><%= @car.reviews.count %></p>
-        <% end %>
-    </div>
-    <div class="box p-2">
-      <h4><%= @car.price_per_hour%>€</h4>
-      <span>PER HOUR</span>
-    </div>
+  <div class="top-info d-flex">
+    <div class="picture" id="car_picture" style="background-image: url('<%= image_path @car.photo %>')"></div>
+      <div
+    id="map"
+    style="width: 100%;
+    height: 400px; margin: 10px; border-radius: 5px;"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
+
+
+  <div class="d-flex justify-content-between">
+      <div class="infos ml-2">
+        <h1><%= @car.brand %> - <%= @car.car_model %></h1>
+        <p><%= @car.year %> | <%#= @car.body_type %>  <%= @car.seats %> seats  <%#= @car.milage %><!-- kms --></p>
+        <% if @car.reviews.length == 0%>
+        <% 5.times do %>
+         <i class="fas fa-star" style="color: grey;"></i>
+         <% end %>
+         0
+         <% end %>
+        <% unless @car.reviews.length == 0 %>
+          <% counter = 0 %>
+          <% @car.reviews.each do |review| %>
+          <% counter += review.rating.to_i %>
+          <% end %>
+            <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
+              <i class="fas fa-star"></i>
+            <% end %><%= @car.reviews.count %></p>
+          <% end %>
+        </div>
+        <div class="user-container">
+          <img src= <%= @car.user.photo %> class="avatar">
+          <p id="user"><strong>Owner:</strong> <%= @car.user.full_name %>  </p>
+      </div>
+    </div>
+    <div class="new-box">
+      <h5 class="mb-3">Dates</h5>
+      <label for="dateofbirth"></label>
+      <input type="date" name="dateofbirth" id="dateofbirth">
+      <label for="dateofbirth"></label>
+      <input type="date" name="dateofbirth" id="dateofbirth">
+      <div class="tex">
+        <h1><%=@car.price_per_hour%>€</h1>
+        <p>For one Hour</p>
+      </div>
+      <div class="btn btn-dark btn-lg w-75" style="position: absolute; bottom: 30px; right: 13%;">Book it</div>
+    </div>
 
 <% if @car.milage.nil?%>
 <%=  %>
@@ -69,13 +83,7 @@
 <% else %>
 <p><strong>Accessories: </strong><%= @car.accessories %></p>
 <% end %>
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-marker="<%= @marker.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+
 
 
 <p><%= link_to "Go back to all cars", cars_path , class: "btn btn-primary btn-lg"%></p>
@@ -87,3 +95,6 @@
 <% end %>
 
 </div>
+
+
+<!--      -->
