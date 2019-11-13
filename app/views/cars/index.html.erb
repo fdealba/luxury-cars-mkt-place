@@ -5,7 +5,7 @@
     <div class="card-img-top rounded pho" width="100%" style="background-image: url('<%= image_path car.photo %>')"></div>
     <% end %>
   <div class="card-body" >
-  <h5 class="m-0"><%= car.car_model %></h5>
+  <h5 class="m-0"><%= car.brand %> - <%= car.car_model %></h5>
   <% if car.reviews.length == 0%>
   <% 5.times do %>
    <i class="fas fa-star" style="color: grey;"></i>
@@ -21,6 +21,7 @@
         <i class="fas fa-star"></i>
       <% end %><%= car.reviews.count %></p>
     <% end %>
+    <img src='<%= car.user.photo %>' class="avatar-bordered card-avatar">
   </div>
   <div class="box p-2">
   <h4><%= car.price_per_hour%>€</h4>

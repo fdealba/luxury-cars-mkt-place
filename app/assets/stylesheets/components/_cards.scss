@@ -1,7 +1,7 @@
 .cards {
 display: grid;
 grid-template-columns: repeat(2, 1fr);
-grid-template-rows: repeat(5, 1fr);
+grid-template-rows: repeat(auto, 1fr);
 grid-column-gap: 20px;
 grid-row-gap: 30px;
 margin: 0 auto;
@@ -22,7 +22,7 @@ justify-items: center;
       width: 100%;
       transition: all 0.5s ease;
       &:hover {
-      box-shadow: 0 4px 24px rgba(0,0,0,.15);
+      box-shadow: 0 4px 24px rgba(0,0,0,.20);
   }
     }
   }
@@ -56,9 +56,16 @@ justify-items: center;
 .pho {
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
 }
 
 .card-body {
   padding: 9.5px;
   padding-left: 1px;
+}
+
+.card-avatar {
+  position: absolute;
+  left: 4px;
+  bottom: 89px;
 }
