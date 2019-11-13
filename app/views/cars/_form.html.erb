@@ -1,27 +1,27 @@
+<h2>Enter Car Details</h2>
+<br>
 <%= simple_form_for (@car) do |f| %>
-    <%= f.input :brand%>
-    <%= f.input :car_model%>
-    <%= f.input :year%>
-    <%= f.input :milage %>
-    <%= f.input :seats %>
-    <%= f.input :combustion %>
-    <%= f.input :transmission %>
-    <%= f.input :accessories %>
-    <%= f.input :plate_number %>
-    <%= f.input :price_per_hour %>
-    <%= f.input :price_per_day %>
-    <%= f.input :description %>
-    <%= f.input :photo %>
+  <%= f.input :brand, placeholder: "BMW"%>
+  <%= f.input :car_model, placeholder: "7 Series"%>
+  <%= f.input :year, placeholder: "2018"%>
+  <%= f.input :milage, label: "Mileage", placeholder: "30000" %>
+  <%= f.input :seats, placeholder: "4" %>
+  <%= f.input :combustion, placeholder: "Diesel" %>
+  <%= f.input :transmission, placeholder: "Automatic" %>
+  <%= f.input :accessories, placeholder: "Air Conditonning, Anti Lock Braking System, Voice Control..." %>
+  <%= f.input :plate_number, placeholder: "3650GYG" %>
+  <%= f.input :price_per_hour, label: "Price Per Hour (€)", placeholder: "200" %>
+  <%= f.input :price_per_day, label: "Price Per Day (€)", placeholder: "2500" %>
+  <%= f.input :description, placeholder: "Description..." %>
+  <%= f.input :photo, placeholder: "URL of photo" %>
 
 <br>
-  <%= f.button :submit, class: "custom-button mb-2"%>
+<div class="submit">
+  <%= f.button :submit, class: "btn-primary padding-right-left"%>
   <br>
-  <br>
-  <p><%= link_to "Go back", root_path, class: "btn btn-primary" %></p>
-  <br>
-  </div>
-</div>
+  <p class="margin-zero padding-right-left"><%= link_to "Cancel", root_path %></p>
 <% end %>
+</div>
 
 
 
