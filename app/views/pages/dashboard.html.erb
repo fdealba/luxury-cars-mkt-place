@@ -1,6 +1,7 @@
 <h1>Dashboard</h1>
 <% if @user %>
-<%= @user.name %>
+<%= @user.full_name %>
 <% else %>
 <%= "Please login" %>
 <% end %>
+<p><%= @user_booking %></p>
