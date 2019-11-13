@@ -1,29 +1,69 @@
-<img src='<%= @car.photo %>' class="text-center" alt="">
-<h1><%= @car.car_model %></h1>
-<p><%= @car.year %> | <%= @car.milage %>kms | <%= @car.seats %> seats | <%= @car.combustion %> | <%= @car.transmission %></p>
-<% unless @car.reviews.length == 0 %>
-    <% counter = 0 %>
-    <% @car.reviews.each do |review| %>
-    <% counter += review.rating.to_i %>
-    <% end %>
-      <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
-        <i class="fas fa-star"></i>
-      <% end %>(<%= @car.reviews.count %>)</p>
-    <% end %>
-<div class="box p-2">
-  <h4><%= @car.price_per_hour%>€</h4>
-  <span>PER HOUR</span>
-</div>
+<div class="container">
+  <div class="top-info">
+    <div class="picture">
+      <img src='<%= @car.photo %>' class="text-center" alt="" id="car_picture">
+    </div>
+    <div class="infos">
+      <h1><%= @car.brand %> - <%= @car.car_model %></h1>
+      <p><%= @car.year %> | <%= @car.body_type %> | <%= @car.seats %> seats | <%= @car.milage %>kms</p>
+    </div>
+    <div class="user-container">
+      <p id="user"><strong>Rented by</strong> <%= @car.user.full_name %> </p>
+      <img src= <%= @car.user.user_photo %> alt="" class="avatar">
+    </div>
+    <div class="rating">
+      <% if @car.reviews.length == 0%>
+      <% 5.times do %>
+       <i class="fas fa-star" style="color: grey;"></i>
+       <% end %>
+       0
+       <% end %>
+      <% unless @car.reviews.length == 0 %>
+        <% counter = 0 %>
+        <% @car.reviews.each do |review| %>
+        <% counter += review.rating.to_i %>
+        <% end %>
+          <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
+            <i class="fas fa-star"></i>
+          <% end %><%= @car.reviews.count %></p>
+        <% end %>
+    </div>
+    <div class="box p-2">
+      <h4><%= @car.price_per_hour%>€</h4>
+      <span>PER HOUR</span>
+    </div>
+  </div>
+
+<% if @car.milage.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Mileage: </strong><%= @car.milage %>kms</p>
+<% end %>
+
+<% if @car.combustion.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Combustion: </strong><%= @car.combustion %></p>
+<% end %>
+
+<% if @car.transmission.nil?%>
+<%=  %>
+<% else %>
+<p><strong>Transmission: </strong><%= @car.transmission %></p>
+<% end %>
+
 <% if @car.description.nil?%>
 <%=  %>
 <% else %>
 <p><strong>Description: </strong><%= @car.description %></p>
 <% end %>
+
 <% if @car.owner_conditions.nil?%>
 <%=  %>
 <% else %>
 <p><strong>Owner Conditions: </strong><%= @car.owner_conditions %></p>
 <% end %>
+
 <% if @car.accessories.nil?%>
 <%=  %>
 <% else %>
@@ -38,9 +78,12 @@
 ></div>
 
 
-<p><%= link_to "Go back", cars_path , class: "btn btn-primary btn-lg"%></p>
+<p><%= link_to "Go back to all cars", cars_path , class: "btn btn-primary btn-lg"%></p>
 <p><%= link_to "Book this car", new_car_booking_path(@car) , class: "btn btn-primary btn-lg"%></p>
+
 <% if policy(@car).edit? %>
   <p><%= link_to "Edit listing", edit_car_path(@car) , class: "btn btn-primary btn-lg"%> </p>
   <p><%= link_to raw('<i class="fas fa-trash" style="color: red !important;"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %></p>
 <% end %>
+
+</div>
