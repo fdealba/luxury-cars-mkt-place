@@ -1,16 +1,16 @@
-<div class="container">
-  <div class="top-info d-flex">
+  <div class="main-container">
+  <div class="top-info d-flex w-100">
     <div class="picture" id="car_picture" style="background-image: url('<%= image_path @car.photo %>')"></div>
       <div
     id="map"
     style="width: 100%;
-    height: 400px; margin: 10px; border-radius: 5px;"
+    height: 400px; margin-right: 20px; margin-top: 20px; margin-left: 10px; border-radius: 5px;"
     data-marker="<%= @marker.to_json %>"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
   </div>
 
 
-  <div class="d-flex justify-content-between">
+  <div class="info-car">
       <div class="infos ml-2">
         <h1><%= @car.brand %> - <%= @car.car_model %></h1>
         <p><%= @car.year %> | <%#= @car.body_type %>  <%= @car.seats %> seats  <%#= @car.milage %><!-- kms --></p>
@@ -30,71 +30,86 @@
             <% end %><%= @car.reviews.count %></p>
           <% end %>
         </div>
-        <div class="user-container">
-          <img src= <%= @car.user.photo %> class="avatar">
-          <p id="user"><strong>Owner:</strong> <%= @car.user.full_name %>  </p>
       </div>
     </div>
-    <div class="new-box">
-      <h5 class="mb-3">Dates</h5>
-      <label for="dateofbirth"></label>
-      <input type="date" name="dateofbirth" id="dateofbirth">
-      <label for="dateofbirth"></label>
-      <input type="date" name="dateofbirth" id="dateofbirth">
-      <div class="tex">
-        <h1><%=@car.price_per_hour%>€</h1>
-        <p>For one Hour</p>
-      </div>
-      <div class="btn btn-dark btn-lg w-75" style="position: absolute; bottom: 30px; right: 13%;">Book it</div>
+    </div>
+<div class="d-flex justify-content-between">
+  <div class="show-cards">
+
+    <div class="show-card">
+      <h5><strong>Owner</strong></h5>
+      <img src="<%= @car.user.photo %>" alt="" class="avatar">
     </div>
 
-<% if @car.milage.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Mileage: </strong><%= @car.milage %>kms</p>
-<% end %>
+      <% if @car.milage.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Mileage: </strong><%= @car.milage %>kms</p>
+    </div>
+      <% end %>
 
-<% if @car.combustion.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Combustion: </strong><%= @car.combustion %></p>
-<% end %>
+      <% if @car.combustion.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Combustion: </strong><%= @car.combustion %></p>
+    </div>
+      <% end %>
 
-<% if @car.transmission.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Transmission: </strong><%= @car.transmission %></p>
-<% end %>
+      <% if @car.transmission.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Transmission: </strong><%= @car.transmission %></p>
+    </div>
+      <% end %>
 
-<% if @car.description.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Description: </strong><%= @car.description %></p>
-<% end %>
+      <% if @car.description.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Description: </strong><%= @car.description %></p>
+    </div>
+      <% end %>
 
-<% if @car.owner_conditions.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Owner Conditions: </strong><%= @car.owner_conditions %></p>
-<% end %>
+      <% if @car.owner_conditions.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Owner Conditions: </strong><%= @car.owner_conditions %></p>
+    </div>
+      <% end %>
 
-<% if @car.accessories.nil?%>
-<%=  %>
-<% else %>
-<p><strong>Accessories: </strong><%= @car.accessories %></p>
-<% end %>
-
-
-
-<p><%= link_to "Go back to all cars", cars_path , class: "btn btn-primary btn-lg"%></p>
-<p><%= link_to "Book this car", new_car_booking_path(@car) , class: "btn btn-primary btn-lg"%></p>
+      <% if @car.accessories.nil?%>
+      <%=  %>
+      <% else %>
+    <div class="show-card">
+      <p><strong>Accessories: </strong><%= @car.accessories %></p>
+    </div>
+      <% end %>
+  </div>
+      <div class="new-box">
+        <h5 class="mb-3">Dates</h5>
+        <label for="dateofbirth"></label>
+        <input type="date" name="dateofbirth" id="dateofbirth">
+        <label for="dateofbirth"></label>
+        <input type="date" name="dateofbirth" id="dateofbirth">
+        <div class="tex">
+          <h1><%=@car.price_per_hour%>€</h1>
+          <p>For one Hour</p>
+        </div>
+        <%= link_to new_car_path do %>
+        <div class="btn btn-dark btn-lg w-75" style="position: absolute; left: 12%; bottom: 8%;">Book it</div>
+        <% end %>
+      </div>
+</div>
 
 <% if policy(@car).edit? %>
   <p><%= link_to "Edit listing", edit_car_path(@car) , class: "btn btn-primary btn-lg"%> </p>
   <p><%= link_to raw('<i class="fas fa-trash" style="color: red !important;"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %></p>
 <% end %>
 
-</div>
 
 
 <!--      -->
