@@ -11,6 +11,12 @@
       <p id="user"><strong>Rented by</strong> <%= @car.user.full_name %> </p>
       <img src= <%= @car.user.photo %> alt="" class="avatar">
     </div>
+    <% if @booking %>
+      <div class="user-container">
+        <p id="user"><strong>Currently rented by</strong> <%= @booking.user.full_name %> </p>
+        <img src= <%= @booking.user.photo %> alt="" class="avatar">
+      </div>
+    <% end %>
     <div class="rating">
       <% if @car.reviews.length == 0%>
       <% 5.times do %>
@@ -79,7 +85,9 @@
 
 
 <p><%= link_to "Go back to all cars", cars_path , class: "btn btn-primary btn-lg"%></p>
+<% unless policy(@car).edit? %>
 <p><%= link_to "Book this car", new_car_booking_path(@car) , class: "btn btn-primary btn-lg"%></p>
+<% end %>
 
 <% if policy(@car).edit? %>
   <p><%= link_to "Edit listing", edit_car_path(@car) , class: "btn btn-primary btn-lg"%> </p>

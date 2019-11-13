@@ -49,6 +49,7 @@ class CarsController < ApplicationController
 
   def show
     @marker = { lat: @car.latitude, lng: @car.longitude }
+    @booking = Booking.all.find { |book| book.car_id == @car.id }
   end
 
   private
