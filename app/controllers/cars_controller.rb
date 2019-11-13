@@ -31,10 +31,18 @@ class CarsController < ApplicationController
   end
 
   def index
-    @cars = Car.all
+    @cars = Car.geocoded
+
+    @markers = @cars.map do |car|
+      {
+        lat: car.latitude,
+        lng: car.longitude
+      }
+    end
   end
 
   def show
+    @marker = { lat: @car.latitude, lng: @car.longitude }
   end
 
   private
