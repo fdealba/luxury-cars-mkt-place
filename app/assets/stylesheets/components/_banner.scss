@@ -35,6 +35,11 @@
   justify-content: center;
   min-height: 100vh;
   overflow: hidden;
+  form {
+  display: flex;
+  position: absolute;
+  bottom: 25%;
+  }
   h1 {
   font-family: 'Lobster Two';
   font-size: 5rem;
@@ -91,7 +96,4 @@
 
 }
 
-.custom {
-  position: absolute;
-  bottom: 25%;
-}
+
