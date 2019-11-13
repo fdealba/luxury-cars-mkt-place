@@ -9,7 +9,7 @@
     </div>
     <div class="user-container">
       <p id="user"><strong>Rented by</strong> <%= @car.user.full_name %> </p>
-      <img src= <%= @car.user.user_photo %> alt="" class="avatar">
+      <img src= <%= @car.user.photo %> alt="" class="avatar">
     </div>
     <div class="rating">
       <% if @car.reviews.length == 0%>
