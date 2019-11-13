@@ -65,7 +65,7 @@ car2 = Car.create!(
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2018,
   description: "The Porsche 911 has 1 Petrol Engine on offer. The Petrol engine is 2981 cc. It is available with the Manual transmission. Depending upon the variant and fuel type the 911 has a mileage of 9.0 kmpl. The 911 is a 2 seater Convertible and has a length of 4519mm, width of 1852mm and a wheelbase of 2450mm.",
-  user_id: User.first.id,
+  user_id: User.all[1].id,
   photo: "https://4d5f5de51693cfc684da-cb2084ba1892d6fbfdf4063f34f87a51.ssl.cf1.rackcdn.com/WP0AB2A96KS114955/4d7b33ee083629541d161af0239ff368.jpg"
   # photo: "https://cdn2.rcstatic.com/images/car_images/web/mercedes/c_class_lrg.jpg"
   )
@@ -84,7 +84,7 @@ car3 = Car.create!(
   accessories: "Air Conditioner, Power Steering",
   year: 2019,
   description: "The Rolls Royce Phantom has 1 Petrol Engine on offer. The Petrol engine is 6749 cc. It is available with the Automatic transmission. Depending upon the variant and fuel type the Rolls Royce Phantom has a mileage of 9.8 kmpl. The Rolls Royce Phantom is a 5 seater Sedan and has a length of 6092mm, width of 1990mm and a wheelbase of 3820mm.",
-  user_id: User.first.id,
+  user_id: User.all[2].id,
   photo: "http://cdn-ds.com/stock/2019-Rolls-Royce-Phantom--Beverly-Hills-CA/seo/VAMP16966-SCA687S55KU104698/sz_211706/ba0ec6ad6f24b02a136eff645d9e095f.jpg"
   # photo: "https://cdn2.rcstatic.com/images/car_images/new_images/opel/cascada_lrg.jpg"
   )
@@ -104,7 +104,7 @@ car4 = Car.create!(
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2018,
   description: "The Maserati Quattroporte has 2 Diesel Engine and 1 Petrol Engine on offer. The Diesel engine is 2987 cc and 2999 cc while the Petrol engine is 3799 cc. It is available with the Automatic transmission. Depending upon the variant and fuel type the Quattroporte has a mileage of 11.76 to 19.23 kmpl. The Quattroporte is a 5 seater Sedan and has a length of 5262mm, width of 2128mm and a wheelbase of 3171mm.",
-  user_id: User.first.id,
+  user_id: User.all[3].id,
   photo: "https://upload.wikimedia.org/wikipedia/commons/d/d1/2015_Maserati_Quattroporte_DV6_Automatic_3.0_Front.jpg"
   # photo: "https://cdn2.rcstatic.com/images/car_images/web/fiat/500_convertible_lrg.jpg"
   )
