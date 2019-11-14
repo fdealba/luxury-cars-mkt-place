@@ -45,6 +45,10 @@ class CarsController < ApplicationController
         image_url: helpers.asset_url('marker.png')
       }
     end
+     if params[:query].present?
+     @cars = Car.search_car(params[:query])
+  end
+
   end
 
   def show
