@@ -1,3 +1,4 @@
+
   <div class="main-container">
   <div class="top-info d-flex w-100">
     <div class="picture" id="car_picture" style="background-image: url('<%= image_path @car.photo %>')"></div>
@@ -123,7 +124,7 @@
           <h1><%=@car.price_per_hour%>€</h1>
           <p>For one Hour</p>
         </div>
-        <%= link_to new_car_path do %>
+        <%= link_to new_car_booking_path(@car) do %>
         <div class="btn btn-dark btn-lg w-75" style="position: absolute; left: 12%; bottom: 8%;">Book it</div>
         <% end %>
       </div>
