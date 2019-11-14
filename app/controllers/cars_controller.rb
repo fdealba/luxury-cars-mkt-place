@@ -52,7 +52,7 @@ class CarsController < ApplicationController
   end
 
   def show
-    @marker = { lat: @car.latitude, lng: @car.longitude }
+    @marker = { lat: @car.latitude, lng: @car.longitude, infoWindow: render_to_string(partial: "info_window", locals: { car: @car }), image_url: helpers.asset_url('marker.png') }
     @booking = Booking.all.find { |book| book.car_id == @car.id }
   end
 
