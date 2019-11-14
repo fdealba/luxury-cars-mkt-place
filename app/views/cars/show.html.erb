@@ -129,6 +129,7 @@
       </div>
 </div>
 
+
 <% if policy(@car).edit? %>
   <p><%= link_to "Edit listing", edit_car_path(@car) , class: "btn btn-primary btn-lg"%> </p>
   <p><%= link_to raw('<i class="fas fa-trash" style="color: red !important;"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %></p>
