@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :cars do
     resources :bookings
+    post 'bookings/new', to: 'bookings#new', as: :send_booking
   end
   resources :bookings do
     resources :reviews

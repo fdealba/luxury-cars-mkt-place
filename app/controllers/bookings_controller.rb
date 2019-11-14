@@ -1,6 +1,11 @@
 class BookingsController < ApplicationController
   def new
+    @start_time = params["booking"]["starts_at"]
+    @end_time = params["booking"]["ends_at"]
+    @start_time_hours = DateTime.parse(params["booking"]["starts_at"]).strftime('%s').to_f / 3600
+    @end_time_hours = DateTime.parse(params["booking"]["ends_at"]).strftime('%s').to_f / 3600
     @car = Car.find(params[:car_id])
+    @result = ((@end_time_hours - @start_time_hours) * @car.price_per_hour).round
     @booking = Booking.new
   end
 
@@ -20,6 +25,6 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:renting_time, :status)
+    params.permit(:renting_time, :starts_at, :ends_at)
   end
 end
