@@ -6,14 +6,16 @@
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
     </svg>
-<%= form_tag cars_path, method: :get do %>
-<%= text_field_tag :query,
-    params[:query],
-    class: "form-control custom",
-    placeholder: "Brand/Model/Transmission/Year"
- %>
-<%= submit_tag "Search", class: "custom-button" %>
-<% end %>
+    <div class="search-bar">
+      <%= form_tag cars_path, method: :get do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control custom",
+          placeholder: "Brand/Model/Transmission/Year"
+       %>
+      <%= submit_tag "SEARCH", class: "custom-button" %>
+      <% end %>
+  </div>
 </div>
 
 <div class="home-cont">
