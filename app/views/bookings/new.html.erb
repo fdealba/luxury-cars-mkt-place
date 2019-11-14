@@ -3,15 +3,12 @@
     <img src='<%= @car.photo %>' class="text-center" alt="" id="car_picture">
   </div>
   <h1>Book <%= @car.brand %> <%= @car.model_name %> <%= @car.year %></h1>
-  <p><strong>Price Per Day - </strong><span id="day-price"><%= @car.price_per_day %></span>€</p>
+  <p><strong>Price Per Hour - </strong><span id="day-price"><%= @car.price_per_hour %></span>€</p>
   <%= simple_form_for [@car, @booking] do |f| %>
-    <%= f.label :renting_time %>
-    <%= f.text_field :renting_time , placeholder: '0'%>
-    <span>days</span>
-    <br>
-    <br>
-    <h3>Total Price - <span id="final-price"> </span>€</h3>
-    <p class="small-italic">200 km incluidos, después 0,12€ / km</p>
-    <%= f.submit "Book this car"  , class: "btn btn-primary btn-lg"%>
+  <h5>Reservation start: <%= @start_time %></h5>
+  <h5>Reservation end: <%= @end_time %></h5>
+  <h3>Total Price - <%= @result %>€</h3>
+  <%= hidden_field_tag 'renting_time', @result / @car.price_per_hour %>
+  <%= f.submit "Book this car"  , class: "btn btn-primary btn-lg"%>
   <% end %>
 </div>

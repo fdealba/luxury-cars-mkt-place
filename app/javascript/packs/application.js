@@ -1,6 +1,8 @@
+import "../plugins/flatpickr"
 import "bootstrap";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { bookingPrice } from "../components/booking";
+import { bookPrice } from "../components/bookprice";
 import { initMapbox } from '../plugins/init_mapbox';
 import { initSingleMapbox } from '../plugins/init_single_mapbox';
 
@@ -19,6 +21,7 @@ if (indexpage) {
 
 if (showpage) {
   initSingleMapbox();
+  bookPrice();
 }
 
 

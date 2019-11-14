@@ -115,17 +115,15 @@
   </div>
   <% if !policy(@car).edit? %>
       <div class="new-box">
-        <h5 class="mb-3">Dates</h5>
-        <label for="dateofbirth"></label>
-        <input type="date" name="dateofbirth" id="dateofbirth">
-        <label for="dateofbirth"></label>
-        <input type="date" name="dateofbirth" id="dateofbirth">
+        <h5 class="mb-2">Dates</h5>
+        <%= simple_form_for :booking, url: car_send_booking_path(@car.id), method: "post" do |f| %>
+          <%= f.input :starts_at, as: :string, required: true, input_html: {class: "datepicker"} %>
+          <%= f.input :ends_at, as: :string, required: true, input_html: {class: "datepicker"} %>
         <div class="tex">
-          <h1><%=@car.price_per_hour%>€</h1>
-          <p>For one Hour</p>
+          <h1 id="final_price"></h1>
+          <p>Price per hour: <span id="car_price"><%= @car.price_per_hour %>€</span></p>
         </div>
-        <%= link_to new_car_booking_path(@car) do %>
-        <div class="btn btn-dark btn-lg w-75" style="position: absolute; left: 12%; bottom: 8%;">Book it</div>
+        <%= f.button :submit, "Book It", class:"btn btn-dark btn-lg w-75 mb-3", style:"position: absolute; left: 12%; bottom: 0%" %>
         <% end %>
       </div>
     <% end %>
