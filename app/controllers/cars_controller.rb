@@ -42,7 +42,7 @@ class CarsController < ApplicationController
         lat: car.latitude,
         lng: car.longitude,
         infoWindow: render_to_string(partial: "info_window", locals: { car: car }),
-        image_url: helpers.asset_url('marker.png')
+        image_url: helpers.asset_url('markernew.png')
       }
     end
      if params[:query].present?
@@ -52,7 +52,7 @@ class CarsController < ApplicationController
   end
 
   def show
-    @marker = { lat: @car.latitude, lng: @car.longitude, infoWindow: render_to_string(partial: "info_window", locals: { car: @car }), image_url: helpers.asset_url('marker.png') }
+    @marker = { lat: @car.latitude, lng: @car.longitude, infoWindow: render_to_string(partial: "info_window", locals: { car: @car }), image_url: helpers.asset_url('markernew.png') }
     @booking = Booking.all.find { |book| book.car_id == @car.id }
   end
 
