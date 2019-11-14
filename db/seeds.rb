@@ -120,7 +120,7 @@ car5 = Car.create!(
   transmission: "Automatic",
   price_per_hour: 400,
   price_per_day: 7000,
-  location: "28009 Madrid",
+  location: "Villaverde Alto Madrid",
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2015,
   description: "The Lamborghini Aventador LP 700-4 is every inch a Lamborghini, from its sharply sculpted front end to the extremely low roofline and the dramatic rear diffuser.",
@@ -140,7 +140,7 @@ car6 = Car.create!(
   transmission: "Automatic",
   price_per_hour: 370,
   price_per_day: 6500,
-  location: "28004 Madrid",
+  location: " 28042 Madrid",
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2017,
   description: "F12berlinetta is a front mid-engine, rear-wheel-drive grand tourer produced by Italian automobile manufacturer Ferrari",
@@ -160,7 +160,7 @@ car7 = Car.create!(
   transmission: "Automatic",
   price_per_hour: 430,
   price_per_day: 7200,
-  location: "28014 Madrid",
+  location: "Leganés Madrid",
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2017,
   description: "ugatti Chiron is a mid-engine two-seater sports car developed and manufactured in Molsheim",
@@ -204,7 +204,7 @@ car9 = Car.create!(
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2013,
   description: "The car has a hand-built body made from carbon fibre designed by Bugatti designer Etienne Salomé",
-  user: user1,
+  user: user2,
   photo: "https://cdn.carbuzz.com/gallery-images/840x560/557000/200/557227.jpg"
 
   )
@@ -224,7 +224,7 @@ car10 = Car.create!(
   accessories: "Air Conditioner, Automatic Climate Control, Multi-function Steering Wheel",
   year: 2018,
   description: "Lagonda Taraf is a four-door full-sized luxury car manufactured by Lagonda",
-  user: user2,
+  user: user3,
   photo: "https://estaticos1.larazon.es/documents/10165/0/755x500/0c37/755d425/none/10810/KEMR/image_content_3530448_20150825103517.jpg"
 
   )
