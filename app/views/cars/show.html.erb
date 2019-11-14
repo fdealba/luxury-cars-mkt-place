@@ -38,7 +38,31 @@
 
     <div class="show-card">
       <h5><strong>Owner</strong></h5>
-      <img src="<%= @car.user.photo %>" alt="" class="avatar">
+      <div class="d-flex align-items-end">
+        <img src="<%= @car.user.photo %>" alt="" class="avatar cust">
+        <div class="ml-3 reviews d-flex align-items-end">
+          <div class="stars">
+          <p><%= @car.user.full_name %></p>
+         <% if @car.user.reviews.length == 0%>
+          <% 5.times do %>
+           <i class="fas fa-star" style="color: grey;"></i>
+           <% end %>
+           </div>
+           <p class="re">0 reviews</p>
+           <% end %>
+          <% unless @car.user.reviews.length == 0 %>
+            <% counter = 0 %>
+            <% @car.user.reviews.each do |review| %>
+            <% counter += review.rating.to_i %>
+            <% end %>
+              <p class="card-text m-0"><% counter/@car.user.reviews.length.times do  %>
+                </div>
+                <i class="fas fa-star"></i>
+                </div>
+              <% end %><%= @car.user.reviews.count %> reviews</p>
+            <% end %>
+          </div>
+       </div>
     </div>
 
       <% if @car.milage.nil?%>

@@ -8,9 +8,6 @@
 .user-container {
   align-items: center;
   margin-top: 25px;
-  .avatar {
-    width: 120px;
-  }
 #user {
   margin: 0px;
   right: 20px;
@@ -30,6 +27,8 @@
   border-radius: 5px;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1)
 }
+
+
 
 
 .top-info {
@@ -88,6 +87,27 @@
       margin-top: 2%;
       padding: 30px;
       box-shadow: 1px 1px 10px rgb(224, 224, 224);
+      .stars {
+        letter-spacing: -2px;
+        p {
+          letter-spacing: 0.5px;
+          margin-bottom: 2%;
+          font-weight: bolder;
+          font-size: 15px;
+        }
+      }
+        .re {
+          font-style: italic;
+          margin-bottom: 0px;
+          margin-left: -25px;
+        }
+      h5 {
+        font-size: 16px;
+      }
+      .avatar {
+    width: 48px;
+    margin-top: 10px;
+  }
   }
 }
 
