@@ -1,12 +1,70 @@
-<div class="container">
-  <div id="btn-dashboard-start" class="flex-center">
-
-    <% if @user %>
-     <h1>Dashboard</h1>
-     <p><%= @user.full_name %></p>
-    <% else %>
-      <h1><%= "Please login" %></h1>
+<div class="container"><h1>My Cars</h1></div>
+<div class="conta d-flex">
+<div class="cards ml-1">
+<% @cars.each do |car| %>
+  <div class="card">
+    <%= link_to car_path(car) do %>
+    <div class="card-img-top rounded pho" width="100%" style="background-image: url('<%= image_path car.photo %>')"></div>
     <% end %>
+  <div class="card-body" >
+  <h5 class="m-0"><%= car.brand %> - <%= car.car_model %></h5>
+  <% if car.reviews.length == 0%>
+  <% 5.times do %>
+   <i class="fas fa-star" style="color: grey;"></i>
+   <% end %>
+   0
+   <% end %>
+  <% unless car.reviews.length == 0 %>
+    <% counter = 0 %>
+    <% car.reviews.each do |review| %>
+    <% counter += review.rating.to_i %>
+    <% end %>
+      <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %><%= car.reviews.count %></p>
+    <% end %>
+    <img src='<%= car.user.photo %>' class="avatar-bordered card-avatar">
   </div>
-  <%= link_to "See my reviews", booking_review_path , class: "btn btn-primary btn-lg"%></p>
+  <div class="box p-2">
+  <h4><%= car.price_per_hour%>€</h4>
+  <span>PER HOUR</span>
+  </div>
+  </div>
+<% end %>
+</div>
+</div>
+<div class="container"><h1>My Rentals</h1></div>
+<div class="conta d-flex">
+<div class="cards ml-1">
+<% @rentals.each do |book| %>
+  <div class="card">
+    <%= link_to car_path(book.car) do %>
+    <div class="card-img-top rounded pho" width="100%" style="background-image: url('<%= image_path book.car.photo %>')"></div>
+    <% end %>
+  <div class="card-body" >
+  <h5 class="m-0"><%= book.car.brand %> - <%= book.car.car_model %></h5>
+  <% if book.car.reviews.length == 0%>
+  <% 5.times do %>
+   <i class="fas fa-star" style="color: grey;"></i>
+   <% end %>
+   0
+   <% end %>
+  <% unless book.car.reviews.length == 0 %>
+    <% counter = 0 %>
+    <% book.car.reviews.each do |review| %>
+    <% counter += review.rating.to_i %>
+    <% end %>
+      <p class="card-text m-0"><% counter/book.car.reviews.length.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %><%= book.car.reviews.count %></p>
+    <% end %>
+    <img src='<%= book.car.user.photo %>' class="avatar-bordered card-avatar">
+  </div>
+  <div class="box p-2">
+  <h4><%= book.car.price_per_hour%>€</h4>
+  <span>PER HOUR</span>
+  </div>
+  </div>
+<% end %>
+</div>
 </div>
