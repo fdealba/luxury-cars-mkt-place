@@ -1,4 +1,3 @@
-
   <div class="main-container">
   <div class="top-info d-flex w-100">
     <div class="picture" id="car_picture" style="background-image: url('<%= image_path @car.photo %>')"></div>
@@ -13,8 +12,8 @@
 
   <div class="info-car">
       <div class="infos ml-2">
-        <h1><%= @car.brand %> - <%= @car.car_model %></h1>
-        <p><%= @car.year %> | <%#= @car.body_type %>  <%= @car.seats %> seats  <%#= @car.milage %><!-- kms --></p>
+        <h1><%= @car.brand %> - <%= @car.car_model %>  <% if policy(@car).edit? %><%= link_to raw('<i class="fas fa-trash"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %><% end %></h1>
+        <p><%= @car.year %> |  <%= @car.seats %> seats <% if policy(@car).edit? %><%= link_to "Edit", edit_car_path(@car)%><% end %></p>
         <% if @car.reviews.length == 0%>
         <% 5.times do %>
          <i class="fas fa-star" style="color: grey;"></i>
@@ -36,7 +35,6 @@
     </div>
 <div class="d-flex justify-content-between">
   <div class="show-cards">
-
     <div class="show-card">
       <h5><strong>Owner</strong></h5>
       <div class="d-flex align-items-end">
@@ -65,6 +63,7 @@
           </div>
        </div>
     </div>
+
 
       <% if @car.milage.nil?%>
       <%=  %>
@@ -114,6 +113,7 @@
     </div>
       <% end %>
   </div>
+  <% if !policy(@car).edit? %>
       <div class="new-box">
         <h5 class="mb-3">Dates</h5>
         <label for="dateofbirth"></label>
@@ -128,13 +128,10 @@
         <div class="btn btn-dark btn-lg w-75" style="position: absolute; left: 12%; bottom: 8%;">Book it</div>
         <% end %>
       </div>
+    <% end %>
 </div>
 
 
-<% if policy(@car).edit? %>
-  <p><%= link_to "Edit listing", edit_car_path(@car) , class: "btn btn-primary btn-lg"%> </p>
-  <p><%= link_to raw('<i class="fas fa-trash" style="color: red !important;"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %></p>
-<% end %>
 
 
 
