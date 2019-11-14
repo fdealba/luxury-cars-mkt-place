@@ -5,6 +5,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @user = current_user
-    @user_booking = @user.booking
+    @cars = Car.all.select { |car| car.user_id == @user.id }
+    @rentals = Booking.all.select { |book| book.user_id == @user.id }
   end
 end
