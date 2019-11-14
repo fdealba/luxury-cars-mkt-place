@@ -1,7 +1,12 @@
-<h1>Dashboard</h1>
-<% if @user %>
-<%= @user.full_name %>
-<% else %>
-<%= "Please login" %>
-<% end %>
-<p><%= @user_booking %></p>
+<div class="container">
+  <div id="btn-dashboard-start" class="flex-center">
+
+    <% if @user %>
+     <h1>Dashboard</h1>
+     <p><%= @user.full_name %></p>
+    <% else %>
+      <h1><%= "Please login" %></h1>
+    <% end %>
+  </div>
+  <%= link_to "See my reviews", booking_review_path , class: "btn btn-primary btn-lg"%></p>
+</div>
