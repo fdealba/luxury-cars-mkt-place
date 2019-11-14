@@ -17,7 +17,15 @@ const initSingleMapbox = () => {
       style: 'mapbox://styles/mapbox/streets-v10'
     });
     const marker = JSON.parse(mapElement.dataset.marker);
-      new mapboxgl.Marker()
+    const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+
+    const element = document.createElement('div');
+    element.className = 'marker';
+    element.style.backgroundImage = `url('${marker.image_url}')`;
+    element.style.backgroundSize = 'cover';
+    element.style.width = '75px';
+    element.style.height = '75px';
+      new mapboxgl.Marker(element)
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     fitMapToMarkers(map, marker);
