@@ -1,4 +1,4 @@
-<div class="cont" style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(<%= asset_path 'home.jpg' %>);">
+<div class="cont" style="background-image: url(<%= asset_path 'Home2.jpg' %>);">
 
   <h1>Rent a <strong>Luxury Car</strong></h1>
   <svg class="pulse" viewBox="0 0 1024 1024" version="1.1">
@@ -16,6 +16,39 @@
 <% end %>
 </div>
 
-<!-- <a href="<%= cars_path %>" class="btn btn-dark btn-lg custom">See All Cars</a>
- -->
+<div class="home-cont">
+    <h2><strong>FEATURED CARS</strong></h2>
+</div>
 
+<div class="home-cards ml-1">
+<% @cars.first(3).each do |car| %>
+  <div class="home-card">
+    <%= link_to car_path(car) do %>
+    <div class="home-card-img-top rounded home-pho" width="100%" style="background-image: url('<%= image_path car.photo %>')"></div>
+    <% end %>
+  <div class="home-card-body" >
+  <h5 class="m-0"><%= car.brand %> - <%= car.car_model %></h5>
+  <% if car.reviews.length == 0%>
+  <% 5.times do %>
+   <i class="fas fa-star" style="color: grey;"></i>
+   <% end %>
+   0
+   <% end %>
+  <% unless car.reviews.length == 0 %>
+    <% counter = 0 %>
+    <% car.reviews.each do |review| %>
+    <% counter += review.rating.to_i %>
+    <% end %>
+      <p class="home-card-text m-0"><% counter/car.reviews.length.times do  %>
+        <i class="fas fa-star"></i>
+      <% end %><%= car.reviews.count %></p>
+    <% end %>
+    <img src='<%= car.user.photo %>' class="avatar-bordered home-card-avatar">
+  </div>
+  <div class="home-box p-2">
+  <h4><%= car.price_per_hour%>€</h4>
+  <span>PER HOUR</span>
+  </div>
+  </div>
+<% end %>
+</div>
