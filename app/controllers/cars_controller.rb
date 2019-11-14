@@ -43,7 +43,7 @@ class CarsController < ApplicationController
       }
     end
      if params[:query].present?
-     @cars = Car.where('brand ILIKE ?', "%#{params[:query]}%")
+     @cars = Car.search_car(params[:query])
   end
   end
 
