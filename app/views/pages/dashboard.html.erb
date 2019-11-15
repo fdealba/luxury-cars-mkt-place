@@ -51,10 +51,10 @@
   <% carbookings.each { |boook| numreview += 1 if boook.review } %>
   <% numreview.zero? ?  mediabook = 0 : mediabook = (sumabook / numreview).round %>
   <% mediabook.times do %>
-   <i class="fas fa-star" style="color: yellow;"></i>
+   <i class="fas fa-star" style="color: #6FCFE1;"></i>
    <%  end %>
    <% (5 - mediabook).times do %>
-   <i class="fas fa-star" style="color: grey;"></i>
+   <i class="fas fa-star" style="color: rgb(240,240,240);"></i>
    <%  end %>
    <%= numreview %> reviews
     <img src='<%= book.car.user.photo %>' class="avatar-bordered home-card-avatar">
