@@ -4,11 +4,12 @@ class ReviewsController < ApplicationController
   def new
     @review = Review.new
   end
+
   def create
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to booking_path(@booking)
+      redirect_to bookings_path(@booking)
     else
       render :new
     end
