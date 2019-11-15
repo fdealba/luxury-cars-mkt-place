@@ -15,11 +15,11 @@
   <% mycarbookings.each { |boook| sumacarbook += boook.review.rating if boook.review } %>
   <% mycarbookings.each { |boook| numreviewcarbook += 1 if boook.review } %>
   <% numreviewcarbook.zero? ?  mediacarbook = 0 : mediacarbook = (sumacarbook / numreviewcarbook).round %>
+  <p class="home-card-text m-0">
   <% mediacarbook.times do %>
    <i class="fas fa-star" style="color: yellow;"></i>
    <% end %>
-      <p class="home-card-text m-0">
-      <% (5 - numreviewcarbook).times do  %>
+      <% (5 - mediacarbook).times do  %>
         <i class="fas fa-star" style="color: gray"></i>
       <% end %><%= numreviewcarbook %> reviews</p>
     <img src='<%= car.user.photo %>' class="avatar-bordered home-card-avatar">
