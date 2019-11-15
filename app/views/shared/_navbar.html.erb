@@ -10,7 +10,9 @@
           class: "form-control custom",
           placeholder: "Search for a car"
        %>
-      <%= submit_tag "GO", class: "custom-button w-25" %>
+       <%= button_tag(type: 'submit', class: "custom-button w-25") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
       <% end %>
   </div>
     <% if user_signed_in? %>
