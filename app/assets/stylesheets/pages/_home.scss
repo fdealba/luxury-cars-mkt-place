@@ -75,3 +75,11 @@ min-height: 40vh;
   left: 4px;
   bottom: 89px;
 }
+
+.review-link > a {
+  color: #A1E8AF;
+  font-weight: bolder;
+  &:hover {
+    opacity: 0.7;
+  }
+}
