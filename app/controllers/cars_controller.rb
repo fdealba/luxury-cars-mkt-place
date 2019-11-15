@@ -48,12 +48,30 @@ class CarsController < ApplicationController
      if params[:query].present?
      @cars = Car.search_car(params[:query])
   end
-
   end
 
   def show
     @marker = { lat: @car.latitude, lng: @car.longitude, infoWindow: render_to_string(partial: "info_window", locals: { car: @car }), image_url: helpers.asset_url('markernew.png') }
-    @booking = Booking.all.find { |book| book.car_id == @car.id }
+    @bookings = Booking.all.select { |book| book.car_id == @car.id }
+    usercars = Car.all.select { |car| car.user_id == @car.user.id }
+    usercarsids = usercars.map { |car| car.id }
+    @usersbookings = Booking.all.select { |book| usercarsids.include? book.car_id }
+    @lasumabook = 0
+    @lamediabook = 0
+    @lasumauser = 0
+    @lamediauser = 0
+    @numreviewbook = 0
+    @numreviewuser = 0
+    unless @bookings.length == 0
+      @bookings.each { |book| @lasumabook += book.review.rating if book.review }
+      @bookings.each { |book| @numreviewbook += 1 if book.review }
+      @numreviewbook.zero? ?  @lamediabook = 0 : @lamediabook = (@lasumabook / @numreviewbook).round
+    end
+    unless @usersbookings.length == 0
+      @usersbookings.each { |book| @lasumauser += book.review.rating if book.review }
+      @usersbookings.each { |book| @numreviewuser += 1 if book.review }
+      @numreviewuser.zero? ? @lamediauser = 0 : @lamediauser = (@lasumauser / @numreviewuser).round
+    end
   end
 
   private
