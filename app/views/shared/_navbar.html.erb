@@ -3,6 +3,18 @@
     <%= image_tag "http://mrluxuryconnect.com/wp-content/uploads/2016/01/Gold-And-Black-300x169.png" %>
     <% end %>
     <ul>
+        <div class="search-bar-nav">
+      <%= form_tag cars_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control custom",
+          placeholder: "Search for a car"
+       %>
+       <%= button_tag(type: 'submit', class: "custom-button w-25") do %>
+          <i class="fas fa-search"></i>
+        <% end %>
+      <% end %>
+  </div>
     <% if user_signed_in? %>
       <li><%= link_to "Dashboard", dashboard_path %></li>
       <li><%= link_to "Cars", cars_path %></li>
@@ -27,3 +39,6 @@
     <% end %>
     </ul>
   </nav>
+
+
+
