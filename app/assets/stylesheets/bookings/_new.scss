@@ -1,17 +1,22 @@
-.booking-container {
-  width: 600px;
-  margin: 30px;
+.car-image {
+  width: 400px;
+  border: 2px solid #D4AF37;
+}
+
+.main-cnt {
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
+  width: 700px;
 }
 
-.small-italic {
-  font-size: 15px;
-  font-style: italic;
-  opacity: 0.9;
+.reservation {
+  background-color: white;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  width: 200px;
 }
 
-#car_picture {
-  width: 100%;
-  border-radius: 5px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+.reservations {
+  display: flex;
+  justify-content: center;
 }
