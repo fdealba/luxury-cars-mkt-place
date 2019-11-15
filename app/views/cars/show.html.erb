@@ -29,6 +29,15 @@
               <i class="fas fa-star"></i>
             <% end %><%= @car.reviews.count %></p>
           <% end %>
+          <div class="features d-flex algin-items-center">
+            <div class="transmission mt-3 d-flex">
+              <i class="fas fa-bolt m-0" style="color: #D4AF37; font-size: 20px;"></i>
+              <p class="m-0 ml-1">Immediate Reservation</p>
+            </div>
+            <div class="transmission ml-2 mt-3">
+              <p class="m-0"><%= @car.transmission %> transmission</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -36,19 +45,21 @@
 <div class="d-flex justify-content-between">
   <div class="show-cards">
     <div class="show-card">
-      <h5><strong>Owner</strong></h5>
+      <h5><strong>OWNER</strong></h5>
       <div class="d-flex align-items-end">
         <img src="<%= @car.user.photo %>" alt="" class="avatar cust">
         <div class="ml-3 reviews d-flex align-items-end">
           <div class="stars">
           <p><%= @car.user.full_name %></p>
          <% if @car.user.reviews.length == 0%>
+         <div class="d-flex align-items-center justify-content-around">
           <% 5.times do %>
-           <i class="fas fa-star" style="color: grey;"></i>
+           <i class="fas fa-star listar" style="color: grey;"></i>
+           <% end %>
+           <span class="m-0 ml-2">0 reviews</span>
+           </div>
            <% end %>
            </div>
-           <p class="re">0 reviews</p>
-           <% end %>
           <% unless @car.user.reviews.length == 0 %>
             <% counter = 0 %>
             <% @car.user.reviews.each do |review| %>
@@ -64,53 +75,35 @@
        </div>
     </div>
 
-
-      <% if @car.milage.nil?%>
-      <%=  %>
-      <% else %>
-    <div class="show-card">
-      <p><strong>Mileage: </strong><%= @car.milage %>kms</p>
-    </div>
-      <% end %>
-
-      <% if @car.combustion.nil?%>
-      <%=  %>
-      <% else %>
-    <div class="show-card">
-      <p><strong>Combustion: </strong><%= @car.combustion %></p>
-    </div>
-      <% end %>
-
-      <% if @car.transmission.nil?%>
-      <%=  %>
-      <% else %>
-    <div class="show-card">
-      <p><strong>Transmission: </strong><%= @car.transmission %></p>
-    </div>
-      <% end %>
-
       <% if @car.description.nil?%>
       <%=  %>
       <% else %>
     <div class="show-card">
-      <p><strong>Description: </strong><%= @car.description %></p>
+      <h5><strong>CAR DESCRIPTION</strong></h5>
+      <p><%= @car.description %></p>
     </div>
       <% end %>
 
-      <% if @car.owner_conditions.nil?%>
-      <%=  %>
-      <% else %>
-    <div class="show-card">
-      <p><strong>Owner Conditions: </strong><%= @car.owner_conditions %></p>
-    </div>
+      <% unless @car.owner_conditions.nil? %>
+      <div class="show-card">
+        <h5><strong>OWNER CONDITIONS</strong></h5>
+        <p><%= @car.owner_conditions %></p>
+      </div>
       <% end %>
+
+      <div class="show-card">
+        <h5><strong>TECHNICAL CHARACTERISTICS</strong></h5>
+        <p><i class="fas fa-gas-pump mr-1" style="color: #D4AF37; font-size: 20px;"></i><strong>Combustion</strong>: <%= @car.combustion %>      -    <strong>Transmission</strong>: <%= @car.transmission %></p>
+        <p class="m-0"><i class="fas fa-tachometer-alt mr-1" style="color: #D4AF37; font-size: 20px;"></i><strong>Milage</strong>: <%= @car.milage %>km</p>
+      </div>
 
       <% if @car.accessories.nil?%>
       <%=  %>
       <% else %>
-    <div class="show-card">
-      <p><strong>Accessories: </strong><%= @car.accessories %></p>
-    </div>
+        <div class="show-card">
+          <h5><strong>OPTIONS AND ACCESORIES</strong></h5>
+          <p><%= @car.accessories %></p>
+        </div>
       <% end %>
   </div>
   <% if !policy(@car).edit? %>
