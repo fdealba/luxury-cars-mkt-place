@@ -7,21 +7,17 @@
     <% end %>
   <div class="card-body" >
   <h5 class="m-0"><%= car.brand %> - <%= car.car_model %></h5>
-  <% if car.reviews.length == 0%>
-  <% 5.times do %>
-   <i class="fas fa-star" style="color: grey;"></i>
+  <% suma = 0 %>
+  <% media = 0 %>
+  <% car.reviews.each { |rev| suma += rev.rating } %>
+  <% car.reviews.length.zero? ?  media = 0 : media = (suma / car.reviews.length).round %>
+  <% media.times do %>
+   <i class="fas fa-star" style="color: #6FCFE1;"></i>
    <% end %>
-   0
+   <% (5 - media).times do %>
+   <i class="fas fa-star" style="color: rgb(240,240,240);"></i>
    <% end %>
-  <% unless car.reviews.length == 0 %>
-    <% counter = 0 %>
-    <% car.reviews.each do |review| %>
-    <% counter += review.rating.to_i %>
-    <% end %>
-      <p class="card-text m-0"><% counter/car.reviews.length.times do  %>
-        <i class="fas fa-star"></i>
-      <% end %><%= car.reviews.count %></p>
-    <% end %>
+   <%= car.reviews.length %> reviews
     <img src='<%= car.user.photo %>' class="avatar-bordered card-avatar">
   </div>
   <div class="box p-2">
