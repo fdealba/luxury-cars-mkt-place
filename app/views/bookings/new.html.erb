@@ -1,8 +1,45 @@
 <div class="container text-center mt-5 main-cnt">
-    <img src='<%= @car.photo %>' class="car-image mt-3 mb-3" alt="">
-  <h1><%= @car.brand.upcase %> <%= @car.year %></h1>
+  <div class="d-flex">
+    <img src='<%= @car.photo %>' class="car-image" alt="">
+    <div
+    id="map"
+    style="flex-grow: 1; border-radius: 0 5px 5px 0;"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+  </div>
+  <h1 class="mt-4 mb-4"><%= @car.brand.upcase %> <%= @car.year %></h1>
   <%= simple_form_for [@car, @booking] do |f| %>
-  <div class="reservations m-3">
+  <div class="mapcard p-2 mb-3">
+      <div class="text-left">
+      <p class="m-0"><strong>PICK UP ADDRESS</strong></p>
+      <p class="m-0"><%= @car.location %></p>
+      </div>
+  </div>
+  <div class="mapcard p-2 mb-3">
+      <div class="text-left">
+      <p class="m-0"><strong>PLATE NUMBER</strong></p>
+      <p class="m-0"><%= @car.plate_number %></p>
+      </div>
+  </div>
+  <div class="mapcard p-2 mb-3">
+      <div class="text-left">
+      <p class="m-0"><strong>ACCESSORIES</strong></p>
+      <p class="m-0"><%= @car.accessories %></p>
+      </div>
+  </div>
+  <div class="mapcard p-2 mb-3">
+      <div class="text-left">
+      <p class="m-0"><strong>SEATS</strong></p>
+      <p class="m-0"><%= @car.seats %></p>
+      </div>
+  </div>
+  <div class="mapcard p-2 mb-3">
+      <div class="text-left">
+      <p class="m-0"><strong>OWNER</strong></p>
+      <p class="m-0"><%= @car.user.full_name %></p>
+      </div>
+  </div>
+  <div class="reservations m-3 mt-4">
     <h5 class="reservation mr-1">Reservation start: <strong><%= @start_time %></strong></h5>
     <h5 class="reservation ml-1">Reservation end: <strong><%= @end_time %></strong></h5>
   </div>
@@ -11,9 +48,4 @@
   <%= f.submit "Book", class: "custom-button w-50 mt-4 mb-3", data: { confirm: "Are you sure?" }%>
   <% end %>
 </div>
-  <div
-    id="map"
-    style="width: 200px; background-color: red;
-    height: 200px; margin-right: 20px; margin-top: 20px; margin-left: 10px; border-radius: 5px;"
-    data-marker="<%= @marker.to_json %>"
-    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
