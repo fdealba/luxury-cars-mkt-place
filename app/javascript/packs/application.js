@@ -12,7 +12,6 @@ const showpage = document.getElementById("cars/show")
 const bookingnew = document.getElementById("bookings/new")
 
 if (bookingnew){
-  bookingPrice();
   initSingleMapbox();
 }
 
