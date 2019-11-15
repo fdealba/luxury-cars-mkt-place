@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.booking = @booking
     if @review.save
-      redirect_to bookings_path(@booking)
+      redirect_to car_path(@booking.car_id)
     else
       render :new
     end
