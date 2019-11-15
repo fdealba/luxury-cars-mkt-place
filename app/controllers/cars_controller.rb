@@ -7,7 +7,7 @@ class CarsController < ApplicationController
   def create
     @car = Car.new(car_params)
     @car.user = current_user
-    if @car.save
+    if @car.save!
       redirect_to car_path(@car)
     else
       render :new
@@ -78,7 +78,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:brand, :price_per_hour, :milage, :photo, :price_per_day, :user_id, :plate_number)
+    params.require(:car).permit(:brand, :price_per_hour, :milage, :photo, :user_id, :plate_number, :car_model, :location)
   end
 
   def skip_pundit?
