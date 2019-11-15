@@ -6,6 +6,7 @@ class BookingsController < ApplicationController
     @end_time_hours = DateTime.parse(params["booking"]["ends_at"]).strftime('%s').to_f / 3600
     @car = Car.find(params[:car_id])
     @result = ((@end_time_hours - @start_time_hours) * @car.price_per_hour).round
+    @marker = { lat: @car.latitude, lng: @car.longitude, infoWindow: render_to_string(partial: "../views/cars/info_window", locals: { car: @car }), image_url: helpers.asset_url('markernew.png') }
     @booking = Booking.new
   end
 

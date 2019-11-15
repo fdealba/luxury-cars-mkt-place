@@ -13,6 +13,7 @@ const bookingnew = document.getElementById("bookings/new")
 
 if (bookingnew){
   bookingPrice();
+  initSingleMapbox();
 }
 
 if (indexpage) {

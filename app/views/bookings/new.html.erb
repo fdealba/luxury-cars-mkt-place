@@ -11,3 +11,9 @@
   <%= f.submit "Book", class: "custom-button w-50 mt-4 mb-3", data: { confirm: "Are you sure?" }%>
   <% end %>
 </div>
+  <div
+    id="map"
+    style="width: 200px; background-color: red;
+    height: 200px; margin-right: 20px; margin-top: 20px; margin-left: 10px; border-radius: 5px;"
+    data-marker="<%= @marker.to_json %>"
+    data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
