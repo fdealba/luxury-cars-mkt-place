@@ -1,14 +1,13 @@
-<div class="booking-container">
-  <div class="picture">
-    <img src='<%= @car.photo %>' class="text-center" alt="" id="car_picture">
-  </div>
-  <h1>Book <%= @car.brand %> <%= @car.model_name %> <%= @car.year %></h1>
-  <p><strong>Price Per Hour - </strong><span id="day-price"><%= @car.price_per_hour %></span>€</p>
+<div class="container text-center mt-5 main-cnt">
+    <img src='<%= @car.photo %>' class="car-image mt-3 mb-3" alt="">
+  <h1><%= @car.brand.upcase %> <%= @car.year %></h1>
   <%= simple_form_for [@car, @booking] do |f| %>
-  <h5>Reservation start: <%= @start_time %></h5>
-  <h5>Reservation end: <%= @end_time %></h5>
-  <h3>Total Price - <%= @result %>€</h3>
+  <div class="reservations m-3">
+    <h5 class="reservation mr-1">Reservation start: <strong><%= @start_time %></strong></h5>
+    <h5 class="reservation ml-1">Reservation end: <strong><%= @end_time %></strong></h5>
+  </div>
+  <h3 class="price">TOTAL: <strong><%= @result %>€</strong></h3>
   <%= hidden_field_tag 'renting_time', @result / @car.price_per_hour %>
-  <%= f.submit "Book this car"  , class: "btn btn-primary btn-lg"%>
+  <%= f.submit "Book", class: "custom-button w-50 mt-4 mb-3", data: { confirm: "Are you sure?" }%>
   <% end %>
 </div>

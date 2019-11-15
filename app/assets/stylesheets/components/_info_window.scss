@@ -9,7 +9,7 @@
 .mapboxgl-popup-content {
   width: 120px !important;
   padding: 3px !important;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3) !important;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7) !important;
   background-color: rgb(50, 50, 50) !important;
   border: 1px solid white !important;
 }
@@ -21,7 +21,7 @@
     font-size: 10px;
   }
   .price {
-    background: white;
+    background: #D4AF37;
     border-radius: 2px;
     margin: 0 auto;
     width: 50%;
