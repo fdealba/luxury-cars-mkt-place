@@ -1,5 +1,5 @@
 class Booking < ApplicationRecord
-  has_many :reviews
+  has_one :review
   validates :renting_time, presence: true
   belongs_to :user
   belongs_to :car

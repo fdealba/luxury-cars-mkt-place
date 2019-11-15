@@ -14,30 +14,13 @@
       <div class="infos ml-2">
         <h1><%= @car.brand %> - <%= @car.car_model %>  <% if policy(@car).edit? %><%= link_to raw('<i class="fas fa-trash"></i>'), car_path(@car), method: :delete, data: { confirm: "Are you sure?" } %><% end %></h1>
         <p><%= @car.year %> |  <%= @car.seats %> seats <% if policy(@car).edit? %><%= link_to "Edit", edit_car_path(@car)%><% end %></p>
-        <% if @car.reviews.length == 0%>
-        <% 5.times do %>
+        <% @lamediabook.times do %>
+         <i class="fas fa-star" style="color: yellow;"></i>
+        <% end %>
+        <% (5 - @lamediabook).times do %>
          <i class="fas fa-star" style="color: grey;"></i>
          <% end %>
-         0
-         <% end %>
-        <% unless @car.reviews.length == 0 %>
-          <% counter = 0 %>
-          <% @car.reviews.each do |review| %>
-          <% counter += review.rating.to_i %>
-          <% end %>
-            <p class="card-text m-0"><% counter/@car.reviews.length.times do  %>
-              <i class="fas fa-star"></i>
-            <% end %><%= @car.reviews.count %></p>
-          <% end %>
-          <div class="features d-flex algin-items-center">
-            <div class="transmission mt-3 d-flex">
-              <i class="fas fa-bolt m-0" style="color: #D4AF37; font-size: 20px;"></i>
-              <p class="m-0 ml-1">Immediate Reservation</p>
-            </div>
-            <div class="transmission ml-2 mt-3">
-              <p class="m-0"><%= @car.transmission %> transmission</p>
-            </div>
-          </div>
+         <%= @numreviewbook %> reviews
         </div>
       </div>
     </div>
@@ -51,26 +34,14 @@
         <div class="ml-3 reviews d-flex align-items-end">
           <div class="stars">
           <p><%= @car.user.full_name %></p>
-         <% if @car.user.reviews.length == 0%>
-         <div class="d-flex align-items-center justify-content-around">
-          <% 5.times do %>
-           <i class="fas fa-star listar" style="color: grey;"></i>
-           <% end %>
-           <span class="m-0 ml-2">0 reviews</span>
+          <% @lamediauser.times do %>
+            <i class="fas fa-star" style="color: yellow;"></i>
+          <% end %>
+          <% (5 - @lamediauser).times do %>
+            <i class="fas fa-star" style="color: grey;"></i>
+          <% end %>
+         <%= @numreviewuser %> reviews
            </div>
-           <% end %>
-           </div>
-          <% unless @car.user.reviews.length == 0 %>
-            <% counter = 0 %>
-            <% @car.user.reviews.each do |review| %>
-            <% counter += review.rating.to_i %>
-            <% end %>
-              <p class="card-text m-0"><% counter/@car.user.reviews.length.times do  %>
-                </div>
-                <i class="fas fa-star"></i>
-                </div>
-              <% end %><%= @car.user.reviews.count %> reviews</p>
-            <% end %>
           </div>
        </div>
     </div>
@@ -105,6 +76,22 @@
           <p><%= @car.accessories %></p>
         </div>
       <% end %>
+    <div class="show-card">
+      <h2><strong>Reviews</strong></h2>
+      <% @bookings.each do |book| %>
+        <% unless book.review == nil %>
+          <hr>
+          <h4><%= book.review.content %></h4>
+          <h5><%= book.user.full_name %> <img src="<%= book.user.photo %>" alt="" class="avatar cust"></h5>
+          <% book.review.rating.times do %>
+            <i class="fas fa-star" style="color: yellow;"></i>
+          <% end %>
+           <% (5 - book.review.rating).times do %>
+            <i class="fas fa-star" style="color: grey;"></i>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <% if !policy(@car).edit? %>
       <div class="new-box">
@@ -121,9 +108,4 @@
       </div>
     <% end %>
 </div>
-
-
-
-
-
 <!--      -->
