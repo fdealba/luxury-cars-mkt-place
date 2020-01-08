@@ -1,18 +1,16 @@
 .cards {
-display: grid;
-grid-template-columns: repeat(2, 1fr);
-grid-template-rows: repeat(auto, 1fr);
-grid-column-gap: 10px;
-grid-row-gap: 0;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
 margin: 0 auto;
 justify-items: center;
-margin-top: 20px;
-width: 100%;
 }
 
 .card {
+  margin: 10px auto !important;
   height: 270px;
-  width: 400px;
+  width: 380px;
+  margin: 10px;
   position: relative;
   border: none;
   a {
@@ -62,7 +60,7 @@ width: 100%;
 
 .card-body {
   padding: 9.5px;
-  padding-left: 1px;
+  padding-left: 15px;
 }
 
 .card-avatar {
