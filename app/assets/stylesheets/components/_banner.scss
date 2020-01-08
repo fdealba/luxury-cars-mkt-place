@@ -111,6 +111,19 @@
 
 }
 
+@media (max-width: 1200px) {
+.search-bar {
+  display: flex;
+}
+.cont {
+  #query{
+    display: none;
+
+  }
+}
+
+}
+
 @keyframes pulse {
 
   25% {
