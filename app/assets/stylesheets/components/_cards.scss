@@ -68,3 +68,18 @@ justify-items: center;
   left: 4px;
   bottom: 58px;
 }
+
+@media (max-width: 375px) {
+  .card {
+    width: 90%;
+  }
+  .cards > .card > .box {
+    right: 5px;
+  }
+}
+
+@media (max-width: 322px) {
+   .cards > .card > .box {
+    display: none;
+  }
+}

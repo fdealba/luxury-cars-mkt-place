@@ -85,6 +85,11 @@
   padding: 4% 0;
   text-align: center;
 }
+@media (max-width: 650px) {
+  .home-cont {
+  padding: 10% 0;
+  }
+}
 
 .pulse {
   z-index: -1;
