@@ -3,6 +3,7 @@
     <div class="picture" id="car_picture" style="background-image: url('<%= image_path @car.photo %>')"></div>
       <div
     id="map"
+    class="showmap"
     style="width: 100%;
     height: 400px; margin-right: 20px; margin-top: 20px; margin-left: 10px; border-radius: 5px;"
     data-marker="<%= @marker.to_json %>"
@@ -25,7 +26,7 @@
       </div>
     </div>
     </div>
-<div class="d-flex justify-content-between">
+<div class="d-flex justify-content-between the-container">
   <div class="show-cards">
     <div class="show-card">
       <h5><strong>OWNER</strong></h5>
