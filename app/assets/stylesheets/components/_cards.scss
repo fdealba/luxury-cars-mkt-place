@@ -83,3 +83,19 @@ justify-items: center;
     display: none;
   }
 }
+
+
+@media (max-width: 1165px) {
+  .conta {
+    flex-direction: column;
+  }
+  .indexmap {
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    height: 50vh !important;
+    margin-bottom: -30px !important;
+    padding-top: 30px !important;
+  }
+}
+
