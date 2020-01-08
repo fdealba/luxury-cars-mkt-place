@@ -16,12 +16,15 @@
       <% end %>
   </div>
     <% if user_signed_in? %>
-      <li><%= link_to "Dashboard", dashboard_path %></li>
-      <li><%= link_to "Cars", cars_path %></li>
-      <li><%= link_to "Rent Your Car", new_car_path %></li>
+      <li class="signedin"><%= link_to "Dashboard", dashboard_path %></li>
+      <li class="signedin"><%= link_to "Cars", cars_path %></li>
+      <li class="signedin"><%= link_to "Rent Your Car", new_car_path %></li>
       <% if current_user.photo.present? %>
       <li><%= image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item text-center" %>
+            <%= link_to "Rent Your Car", new_car_path, class: "dropdown-item text-center" %>
+            <%= link_to "Cars", cars_path, class: "dropdown-item text-center" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-center" %>
           </div>
       </li>

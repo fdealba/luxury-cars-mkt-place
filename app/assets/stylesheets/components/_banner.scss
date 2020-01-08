@@ -37,6 +37,7 @@
   min-height: 70vh;
   overflow: hidden;
   padding-bottom: 8rem;
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -114,7 +115,7 @@
 
 }
 
-@media (max-width: 725px) {
+@media (max-width: 740px) {
 .search-bar {
   display: flex;
 }
