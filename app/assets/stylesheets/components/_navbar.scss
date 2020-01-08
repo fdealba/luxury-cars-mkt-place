@@ -160,3 +160,9 @@ nav.fill ul li a:hover:after {
     border-radius: 0;
   }
 }
+
+@media (max-width: 520px) {
+  .search-bar-nav {
+    display: none;
+  }
+}

@@ -1,21 +1,23 @@
 <div class="cont" style="background-image: url(<%= asset_path 'Home2.jpg' %>);">
+    <div class="d-flex flex-column align-items-center justify-content-center banner-header">
+      <h1>Rent a <strong>Luxury Car</strong></h1>
 
-  <h1>Rent a <strong>Luxury Car</strong></h1>
+      <div class="search-bar">
+        <%= form_tag cars_path, method: :get do %>
+        <%= text_field_tag :query,
+            params[:query],
+            class: "form-control custom",
+            placeholder: "Brand/Model/Transmission/Year"
+         %>
+        <%= submit_tag "BROWSE", class: "custom-button" %>
+        <% end %>
+      </div>
+    </div>
   <svg class="pulse" viewBox="0 0 1024 1024" version="1.1">
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
         <circle id="Oval" cx="512" cy="512" r="512"></circle>
     </svg>
-    <div class="search-bar">
-      <%= form_tag cars_path, method: :get do %>
-      <%= text_field_tag :query,
-          params[:query],
-          class: "form-control custom",
-          placeholder: "Brand/Model/Transmission/Year"
-       %>
-      <%= submit_tag "BROWSE", class: "custom-button" %>
-      <% end %>
-  </div>
 </div>
 
 <div class="home-cont">
